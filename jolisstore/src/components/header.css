@@ -1,6 +1,22 @@
+:root {
+  /* Colores principales */
+  --color-primary: #e2c2d2;
+  --color-secondary: #4b3d4f;
+  --color-accent: #868092;
+  --color-accent-hover: #756a84;
+  
+  /* Colores para elementos móviles */
+  --color-mobile-fab: #e2c2d2;
+  --color-mobile-fab-hover: #a05a72;
+  
+  /* Colores neutros */
+  --color-white: white;
+  --color-black: rgba(0, 0, 0, 0.1);
+}
+
 /* Estructura principal */
 .header {
-  background-color: #4b3d4f;
+  background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,11 +27,25 @@
 
 /* Logo */
 .logo {
-  color: #e2c2d2;
+  color: var(--color-secondary);
   font-weight: 700;
   font-size: 1.5rem;
   flex-shrink: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Tamaño predeterminado (grande) */
+.logo-image {
+  height: 100px;
+  width: auto;
+  margin-right: 0.1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Menú móvil abierto: Oculta el logo principal */
@@ -41,14 +71,14 @@ body.mobile-menu-open .logo {
 }
 
 .categories a {
-  color: #e2c2d2;
+  color: var(--color-secondary);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s;
 }
 
 .categories a:hover {
-  color: white;
+  color: var(--color-white);
 }
 
 /* Contenedor dropdown (derecha) */
@@ -61,7 +91,7 @@ body.mobile-menu-open .logo {
 .menu-button {
   background: none;
   border: none;
-  color: #e2c2d2;
+  color: var(--color-secondary);
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
@@ -73,9 +103,9 @@ body.mobile-menu-open .logo {
   position: absolute;
   top: 100%;
   right: 0;
-  background: #4b3d4f;
+  background: var(--color-primary);
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--color-black);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -95,8 +125,8 @@ body.mobile-menu-open .logo {
 
 /* Botones dropdown */
 .dropdown-button {
-  background: #868092;
-  color: white;
+  background: var(--color-accent);
+  color: var(--color-white);
   border: none;
   border-radius: 4px;
   padding: 0.5rem 1rem;
@@ -109,7 +139,7 @@ body.mobile-menu-open .logo {
 }
 
 .dropdown-button:hover {
-  background: #756a84;
+  background: var(--color-accent-hover);
 }
 
 .icon {
@@ -121,7 +151,7 @@ body.mobile-menu-open .logo {
   display: none;
   background: none;
   border: none;
-  color: #e2c2d2;
+  color: var(--color-secondary);
   cursor: pointer;
   z-index: 1001;
 }
@@ -135,21 +165,47 @@ body.mobile-menu-open .logo {
   left: 0;
   width: 70%;
   height: 100vh;
-  background: #4b3d4f;
+  background: var(--color-primary);
   padding: 2rem 1rem 1rem;
-  gap: 1rem;
+  gap: 0;
   transform: translateX(-100%);
   animation: slideIn 0.3s forwards;
   z-index: 1000;
 }
 
+  .categories.mobile-visible a {
+  padding: 1rem 1.5rem;
+  margin: 0;
+  position: relative;
+  color: var(--color-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.categories.mobile-visible a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  background-color: rgba(75, 61, 79, 0.2); /* Color secundario con transparencia */
+}
+
+/* Ajusta el logo dentro del menú móvil */
+.mobile-visible .logo-container {
+  padding-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(75, 61, 79, 0.3);
+}
+
 /* Logo dentro del menú móvil */
 .mobile-logo {
-  color: #e2c2d2;
+  color: var(--color-secondary);
   font-weight: bold;
   font-size: 1rem;
   padding: 0,5rem 0;
-  border-bottom: 2px solid #868092;
+  border-bottom: 2px solid var(--color-accent);
   margin-bottom: 0,5rem;
   width: 100%;
   text-align: center;
@@ -194,6 +250,8 @@ body.mobile-menu-open .logo {
     display: none;
   }
 
+
+
   /* Asegura que el logo sea visible en desktop */
   .logo {
     opacity: 1 !important;
@@ -216,10 +274,10 @@ body.mobile-menu-open .logo {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: #b26e86;
-  color: white;
+  background-color: var(--color-mobile-fab);
+  color: var(--color-white);
   border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--color-black);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -228,7 +286,7 @@ body.mobile-menu-open .logo {
 }
 
 .mobile-fab:hover {
-  background-color: #a05a72;
+  background-color: var(--color-mobile-fab-hover);
   transform: scale(1.1);
 }
 
@@ -255,8 +313,8 @@ body.mobile-menu-open .logo {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #868092;
-  color: white;
+  background-color: var(--color-accent);
+  color: var(--color-white);
   border: none;
   display: flex;
   align-items: center;
@@ -266,7 +324,7 @@ body.mobile-menu-open .logo {
 }
 
 .fab-button:hover {
-  background-color: #756a84;
+  background-color: var(--color-accent-hover);
 }
 
 /* Responsive */
@@ -292,5 +350,19 @@ body.mobile-menu-open .logo {
     opacity: 1 !important;
     visibility: visible !important;
     position: relative !important;
+  }
+}
+
+/* Mediano: tablet */
+@media (max-width: 1023px) {
+  .logo-image {
+    height: 80px;
+  }
+}
+
+/* Pequeño: móvil */
+@media (max-width: 599px) {
+  .logo-image {
+    height: 60px;
   }
 }

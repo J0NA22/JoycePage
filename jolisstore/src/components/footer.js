@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/LOGO.png';
 import './footer.css';
 import {
   LocationOn,
@@ -41,7 +42,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <h2>MiEmpresa</h2>
+          <div className='logo-container'>
+            <img src={logo} alt="Logo de Jolis Store" className="logo-image" />
+            <h2>Jolis Store</h2>
+          </div>
           <p>Soluciones innovadoras para tu negocio</p>
         </div>
         
@@ -113,8 +117,8 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} MiEmpresa. Todos los derechos reservados. | 
-          <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a></p>
+        <p>&copy; {new Date().getFullYear()} Jolis Store. Todos los derechos reservados. | 
+          <a href="https://www.youtube.com/watch?v=OJrX3aNPsHM">Política de privacidad</a> | <a href="https://www.youtube.com/watch?v=BtLSaxRnIhc">Términos de servicio</a></p>
       </div>
     </footer>
   );

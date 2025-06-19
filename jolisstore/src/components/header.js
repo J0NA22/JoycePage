@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import './header.css';
+import logo from '../assets/LOGO.png';
 import { 
   Search, 
   ShoppingCart, 
@@ -19,7 +21,12 @@ const Header = () => {
   return (
     <header className="header">
       {/* Logo (izquierda) */}
-      <div className="logo">LOGO</div>
+      <div className="logo">
+        <Link to="/" className="logo-container">
+          <img src={logo} alt="Logo de Jolis Store" className="logo-image" />
+          <h1 className="logo">Jolis Store</h1>
+      </Link>
+      </div>
 
       {/* Categorías (centro) */}
 
@@ -31,14 +38,19 @@ const Header = () => {
         {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
       </button>
       <nav className={`categories ${showMobileMenu ? 'mobile-visible' : ''}`}>
-        <div className="mobile-logo">LOGO</div>
-        <a href="#">Maquillaje</a>
-        <a href="#">Perfume</a>
-        <a href="#">Jeans</a>
-        <a href="#">Blusas</a>
+        <div className="mobile-menu-button">
+          <div className='logo-container'>
+            <img src={logo} alt="Logo de Jolis Store" className="logo-image" />
+            <h1 className="logo">Jolis Store</h1>
+          </div>
+        </div>
+        <a href="#">Ropa</a>
+        <a href="#">Accesorios</a>
+        <a href="#">Lencería</a>
         <a href="#">Zapatos</a>
-        <a href="#">Vestidos</a>
-        <a href="#">Complementos</a>
+        <a href="#">Bolsos</a>
+        <a href="#">Deporte</a>
+        <a href="#">Perfumes</a>
         <a href="#">Rebajas</a>
       </nav>
 
@@ -54,13 +66,13 @@ const Header = () => {
         </button>
         <div className={`dropdown-buttons ${showDropdown ? 'visible' : ''}`}>
           <button className="dropdown-button">
-            <Search className="icon" /> Búsqueda
+            <Search className="icon" /> 
           </button>
           <button className="dropdown-button">
-            <ShoppingCart className="icon" /> Carrito
+            <ShoppingCart className="icon" /> 
           </button>
           <button className="dropdown-button">
-            <AboutUsIcon className="icon" /> About Us
+            <AboutUsIcon className="icon" /> 
           </button>
         </div>
       </div>
